@@ -1,0 +1,124 @@
+// HEADER 
+// *******************************************************************
+
+.primary__wrapper {
+    background: $primary-background;
+    color: $primary-text;
+    padding: 3% 5%;
+}
+
+.header {
+    @include flex(row, space-between);
+    font-weight: 700;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header__logo {
+    width: 30%;
+}
+
+.header__menu--upper {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__menu--bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header__menu--upper ul,
+.header__menu--bottom ul {
+    @include flex(row, flex-end);
+}
+
+.header__menu--upper li {
+    padding: 1% 2%;
+}
+
+.header__menu--bottom li {
+    padding: 1% 2% 1% 4%;
+}
+
+.header__menu--link {
+    color: $primary-text;
+}
+
+.normal {
+    font-weight: 400;
+}
+
+.active {
+    background-color: $hover;
+    padding: 20%;
+    border-radius: 20%;
+}
+
+.scale:hover {
+    transition: .8s;
+    transform: scale(1);
+    background-color: $hover;
+    padding: 20%;
+    border-radius: 20%;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .header__menu--upper li {
+        padding: 1% 0% 1% 2.1%;
+    }
+
+    .header__menu--bottom li {
+        padding: 2.5% 0% 0% 6%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__menu--upper ul,
+    .header__menu--bottom ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .header__menu--upper {
+        order: 0;
+    }
+
+    .header__logo {
+        order: 1;
+    }
+
+    .header__menu--bottom {
+        order: 2;
+    }
+
+    .header__logo {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .header__menu--upper ul,
+    .header__menu--bottom ul {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .header__menu--upper li {
+        padding: 1% 2% 1% 0%;
+    }
+
+    .header__menu--bottom li {
+        padding: 2.5% 4% 0% 0%;
+    }
+}

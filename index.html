@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,73 +22,71 @@
                 <div class="header__logo">
                     <img src="img/Logo.svg" alt="Logo">
                 </div>
-                <div class="header__menu">
-                    <div class="header__menu--upper">
-                        <ul>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    УК
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    РУ
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    EN
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <img class="header__menu--image" src="img/Dot separator.svg" alt="Dot">
-                            </li>
-                            <li class="header__menu--item">
-                                Kyiv, Mechnikova str, 14/1
-                            </li>
-                            <li class="header__menu--item">
-                                <img src="img/Dot separator.svg" alt="Dot">
-                            </li>
-                            <li class="header__menu--item">
-                                0800 211 927
-                            </li>
-                            <li class="header__menu--item">
-                                <img class="header__menu--image" src="img/Dot separator.svg" alt="Dot">
-                            </li>
-                            <li class="header__menu--item">
-                                <img class="header__menu--image" src="img/facebook.svg" alt="Facebook logo">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="header__menu--bottom">
-                        <ul>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    about us
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    services
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    team
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    publications
-                                </a>
-                            </li>
-                            <li class="header__menu--item">
-                                <a class="header__menu--link" href="#">
-                                    contact
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="header__menu--upper">
+                    <ul>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link scale" href="#">
+                                УК
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link scale" href="#">
+                                РУ
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link active" href="#">
+                                EN
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <img class="header__menu--image" src="img/Dot separator.svg" alt="Dot">
+                        </li>
+                        <li class="header__menu--item normal">
+                            Kyiv, Mechnikova str, 14/1
+                        </li>
+                        <li class="header__menu--item">
+                            <img src="img/Dot separator.svg" alt="Dot">
+                        </li>
+                        <li class="header__menu--item">
+                            0800 211 927
+                        </li>
+                        <li class="header__menu--item">
+                            <img class="header__menu--image" src="img/Dot separator.svg" alt="Dot">
+                        </li>
+                        <li class="header__menu--item">
+                            <img class="header__menu--image" src="img/facebook.svg" alt="Facebook logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__menu--bottom">
+                    <ul>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link" href="#">
+                                about us
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link" href="#">
+                                services
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link" href="#">
+                                team
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link" href="#">
+                                publications
+                            </a>
+                        </li>
+                        <li class="header__menu--item">
+                            <a class="header__menu--link" href="#">
+                                contact
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </header>
 
@@ -105,6 +104,51 @@
 
     </div>
 
+
+
+
+
+
+
+
+    <script>
+        function main() {
+            var menuIconOpen = document.getElementsByClassName("open")[0];
+            var menuIconClose = document.getElementsByClassName("close")[0];
+            var menuItems = document.getElementsByClassName("menu__item");
+
+            menuIconClose.style.display = "none";
+
+            menuIconOpen.onclick = function () {
+                this.style.display = "none";
+                menuIconClose.style.display = "block";
+                menuDisplay("show", menuItems);
+            };
+
+            menuIconClose.onclick = function () {
+                this.style.display = "none";
+                menuIconOpen.style.display = "block";
+                menuDisplay("hide", menuItems);
+            };
+        }
+
+        function menuDisplay(state, items) {
+            if (state == "show") {
+                for (var i = 1; i < items.length; i++) {
+                    items[i].classList.add("show");
+                }
+            } else {
+                for (var i = 1; i < items.length; i++) {
+                    items[i].classList.remove("show");
+                }
+            }
+        }
+
+        window.onload = function () {
+            main();
+        }
+
+    </script>
 </body>
 
 </html>
